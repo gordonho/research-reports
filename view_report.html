@@ -17,6 +17,10 @@
             --text-light: #888;
             --border: #e0e0e0;
             --code-bg: #f6f8fa;
+            --wechat: #07c160;
+            --weibo: #e6162d;
+            --twitter: #1da1f2;
+            --link: #333;
         }
         
         body {
@@ -26,7 +30,6 @@
             line-height: 1.8;
         }
         
-        /* Header */
         .header {
             background: var(--card-bg);
             border-bottom: 1px solid var(--border);
@@ -63,7 +66,6 @@
         
         .back:hover { color: var(--accent); }
         
-        /* Content */
         .content {
             max-width: 800px;
             margin: 40px auto;
@@ -94,7 +96,6 @@
             border-bottom: 1px solid var(--border);
         }
         
-        /* Markdown Styles */
         .article h2 {
             font-size: 24px;
             font-weight: 700;
@@ -111,19 +112,9 @@
             margin: 30px 0 12px;
         }
         
-        .article p {
-            margin-bottom: 16px;
-            font-size: 16px;
-        }
-        
-        .article ul, .article ol {
-            margin: 16px 0;
-            padding-left: 24px;
-        }
-        
-        .article li {
-            margin-bottom: 8px;
-        }
+        .article p { margin-bottom: 16px; font-size: 16px; }
+        .article ul, .article ol { margin: 16px 0; padding-left: 24px; }
+        .article li { margin-bottom: 8px; }
         
         .article code {
             background: var(--code-bg);
@@ -141,10 +132,7 @@
             margin: 20px 0;
         }
         
-        .article pre code {
-            background: none;
-            padding: 0;
-        }
+        .article pre code { background: none; padding: 0; }
         
         .article blockquote {
             border-left: 4px solid var(--accent);
@@ -154,58 +142,74 @@
             font-style: italic;
         }
         
-        .article table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+        .article table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .article th, .article td { border: 1px solid var(--border); padding: 12px; text-align: left; }
+        .article th { background: var(--code-bg); font-weight: 600; }
+        .article a { color: var(--accent); text-decoration: none; }
+        .article a:hover { text-decoration: underline; }
+        .article img { max-width: 100%; border-radius: 8px; margin: 20px 0; }
+        
+        /* Share Buttons */
+        .share-section {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
         }
         
-        .article th, .article td {
-            border: 1px solid var(--border);
-            padding: 12px;
-            text-align: left;
+        .share-label {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 12px;
         }
         
-        .article th {
-            background: var(--code-bg);
-            font-weight: 600;
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
         }
         
-        .article a {
-            color: var(--accent);
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
             text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, opacity 0.2s;
         }
         
-        .article a:hover {
-            text-decoration: underline;
+        .share-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
         
-        .article img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin: 20px 0;
+        .share-btn.wechat { background: var(--wechat); }
+        .share-btn.weibo { background: var(--weibo); }
+        .share-btn.twitter { background: var(--twitter); }
+        .share-btn.link { background: var(--link); }
+        
+        .share-icon {
+            font-size: 16px;
         }
         
         /* Loading */
-        .loading {
-            text-align: center;
-            padding: 60px;
-            color: var(--text-light);
-        }
+        .loading { text-align: center; padding: 60px; color: var(--text-light); }
         
         /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-light);
-            font-size: 13px;
-        }
+        .footer { text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 13px; }
         
         /* Responsive */
         @media (max-width: 640px) {
             .article { padding: 24px; }
             .article h1 { font-size: 24px; }
             .article h2 { font-size: 20px; }
+            .share-buttons { gap: 8px; }
+            .share-btn { padding: 8px 16px; font-size: 13px; }
         }
     </style>
 </head>
@@ -221,6 +225,21 @@
         <article class="article" id="article">
             <div class="loading">Loading...</div>
         </article>
+        
+        <div class="share-section" id="shareSection" style="display:none;">
+            <div class="share-label">分享到：</div>
+            <div class="share-buttons">
+                <button class="share-btn wechat" onclick="shareToWechat()">
+                    <span class="share-icon">💬</span> 微信
+                </button>
+                <button class="share-btn weibo" onclick="shareToWeibo()">
+                    <span class="share-icon">📱</span> 微博
+                </button>
+                <button class="share-btn link" onclick="copyLink()">
+                    <span class="share-icon">🔗</span> 复制链接
+                </button>
+            </div>
+        </div>
     </div>
     
     <footer class="footer">
@@ -228,6 +247,9 @@
     </footer>
     
     <script>
+        let currentTitle = '';
+        let currentUrl = window.location.href;
+        
         const params = new URLSearchParams(window.location.search);
         const file = params.get('file') || 'Epic_AI_Charting_Detailed_Report_20260213.md';
         
@@ -235,10 +257,33 @@
             .then(response => response.text())
             .then(markdown => {
                 document.getElementById('article').innerHTML = marked.parse(markdown);
+                // 获取标题
+                const h1 = document.querySelector('.article h1');
+                if (h1) currentTitle = h1.textContent;
+                // 显示分享按钮
+                document.getElementById('shareSection').style.display = 'block';
             })
             .catch(err => {
                 document.getElementById('article').innerHTML = '加载失败: ' + err.message;
             });
+        
+        function shareToWechat() {
+            // 微信分享需要使用 JS-SDK，这里显示提示
+            alert('请使用微信扫一扫分享此页面\n\n或点击"复制链接"分享给好友');
+        }
+        
+        function shareToWeibo() {
+            const weiboUrl = 'http://service.weibo.com/share/share.php?url=' + encodeURIComponent(currentUrl) + '&title=' + encodeURIComponent(currentTitle);
+            window.open(weiboUrl, '_blank');
+        }
+        
+        function copyLink() {
+            navigator.clipboard.writeText(currentUrl).then(() => {
+                alert('链接已复制到剪贴板！');
+            }).catch(() => {
+                prompt('请复制以下链接：', currentUrl);
+            });
+        }
     </script>
 </body>
 </html>
