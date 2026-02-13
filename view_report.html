@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究报告</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #001935;
+            --accent: #00a8e8;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #444;
+            --text-light: #888;
+            --border: #e0e0e0;
+            --code-bg: #f6f8fa;
+            --wechat: #07c160;
+            --weibo: #e6162d;
+            --twitter: #1da1f2;
+            --link: #333;
+        }
+        
+        body {
+            font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        
+        .header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span { color: var(--accent); }
+        
+        .back {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .back:hover { color: var(--accent); }
+        
+        .content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+        
+        .article {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid var(--border);
+        }
+        
+        .article h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        
+        .article .meta {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .article h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 40px 0 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .article h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 30px 0 12px;
+        }
+        
+        .article p { margin-bottom: 16px; font-size: 16px; }
+        .article ul, .article ol { margin: 16px 0; padding-left: 24px; }
+        .article li { margin-bottom: 8px; }
+        
+        .article code {
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SF Mono", Monaco, monospace;
+            font-size: 14px;
+        }
+        
+        .article pre {
+            background: var(--code-bg);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .article pre code { background: none; padding: 0; }
+        
+        .article blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin: 20px 0;
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
+        .article table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .article th, .article td { border: 1px solid var(--border); padding: 12px; text-align: left; }
+        .article th { background: var(--code-bg); font-weight: 600; }
+        .article a { color: var(--accent); text-decoration: none; }
+        .article a:hover { text-decoration: underline; }
+        .article img { max-width: 100%; border-radius: 8px; margin: 20px 0; }
+        
+        /* Share Buttons */
+        .share-section {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .share-label {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        
+        .share-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        
+        .share-btn.wechat { background: var(--wechat); }
+        .share-btn.weibo { background: var(--weibo); }
+        .share-btn.twitter { background: var(--twitter); }
+        .share-btn.link { background: var(--link); }
+        
+        .share-icon {
+            font-size: 16px;
+        }
+        
+        /* Loading */
+        .loading { text-align: center; padding: 60px; color: var(--text-light); }
+        
+        /* Footer */
+        .footer { text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 13px; }
+        
+        /* Responsive */
+        @media (max-width: 640px) {
+            .article { padding: 24px; }
+            .article h1 { font-size: 24px; }
+            .article h2 { font-size: 20px; }
+            .share-buttons { gap: 8px; }
+            .share-btn { padding: 8px 16px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Research<span>Notes</span></a>
+            <a href="index.html" class="back">← Back</a>
+        </div>
+    </div>
+    
+    <div class="content">
+        <article class="article" id="article">
+            <div class="loading">Loading...</div>
+        </article>
+        
+        <div class="share-section" id="shareSection" style="display:none;">
+            <div class="share-label">分享到：</div>
+            <div class="share-buttons">
+                <button class="share-btn wechat" onclick="shareToWechat()">
+                    <span class="share-icon">💬</span> 微信
+                </button>
+                <button class="share-btn weibo" onclick="shareToWeibo()">
+                    <span class="share-icon">📱</span> 微博
+                </button>
+                <button class="share-btn link" onclick="copyLink()">
+                    <span class="share-icon">🔗</span> 复制链接
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>Powered by GitHub Pages</p>
+    </footer>
+    
+    <script>
+        let currentTitle = '';
+        let currentUrl = window.location.href;
+        
+        const params = new URLSearchParams(window.location.search);
+        const file = params.get('file') || 'Epic_AI_Charting_Detailed_Report_20260213.md';
+        
+        fetch(file)
+            .then(response => response.text())
+            .then(markdown => {
+                document.getElementById('article').innerHTML = marked.parse(markdown);
+                // 获取标题
+                const h1 = document.querySelector('.article h1');
+                if (h1) currentTitle = h1.textContent;
+                // 显示分享按钮
+                document.getElementById('shareSection').style.display = 'block';
+            })
+            .catch(err => {
+                document.getElementById('article').innerHTML = '加载失败: ' + err.message;
+            });
+        
+        function shareToWechat() {
+            // 微信分享需要使用 JS-SDK，这里显示提示
+            alert('请使用微信扫一扫分享此页面\n\n或点击"复制链接"分享给好友');
+        }
+        
+        function shareToWeibo() {
+            const weiboUrl = 'http://service.weibo.com/share/share.php?url=' + encodeURIComponent(currentUrl) + '&title=' + encodeURIComponent(currentTitle);
+            window.open(weiboUrl, '_blank');
+        }
+        
+        function copyLink() {
+            navigator.clipboard.writeText(currentUrl).then(() => {
+                alert('链接已复制到剪贴板！');
+            }).catch(() => {
+                prompt('请复制以下链接：', currentUrl);
+            });
+        }
+    </script>
+</body>
+</html>
