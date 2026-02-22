@@ -3,91 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI大模型深度研究报告</title>
+    <title>Research Notes | 研究笔记</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #001935;
+            --accent: #00a8e8;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #444;
+            --text-light: #888;
+            --border: #e0e0e0;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 100vh; color: #eee; line-height: 1.6;
+            font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 60px; }
-        h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(90deg, #00d4ff, #7b2ff7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
+        
+        /* Header */
+        .header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .subtitle { color: #888; font-size: 1.1rem; }
-        .reports { display: grid; gap: 24px; }
-        .report-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px; padding: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-            text-decoration: none; color: inherit; display: block;
+        
+        .header-inner {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .report-card:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-4px);
-            border-color: rgba(0,212,255,0.3);
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
         }
-        .report-number {
+        
+        .logo span { color: var(--accent); }
+        
+        .nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .nav a:hover { color: var(--accent); }
+        
+        /* Main */
+        .main {
+            max-width: 840px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* Post Card */
+        .post {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .post-header {
+            padding: 24px 24px 0;
+        }
+        
+        .post-tag {
             display: inline-block;
-            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
-            color: #fff; width: 36px; height: 36px;
-            border-radius: 50%; text-align: center;
-            line-height: 36px; font-weight: bold; margin-right: 16px;
+            background: var(--primary);
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
         }
-        .report-title { font-size: 1.4rem; font-weight: 600; margin-bottom: 12px; color: #fff; }
-        .report-desc { color: #aaa; margin-bottom: 16px; }
-        .report-meta { display: flex; gap: 16px; font-size: 0.85rem; color: #666; }
-        .tag {
-            background: rgba(0,212,255,0.2); color: #00d4ff;
-            padding: 4px 12px; border-radius: 20px;
+        
+        .post-tag.ai { background: var(--accent); }
+        .post-tag.tech { background: #ff4757; }
+        .post-tag.research { background: #2ed573; }
+        
+        .post-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+            line-height: 1.3;
         }
-        footer { text-align: center; margin-top: 60px; color: #555; font-size: 0.9rem; }
+        
+        .post-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .post-title a:hover { color: var(--accent); }
+        
+        .post-meta {
+            color: var(--text-light);
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+        
+        .post-content {
+            padding: 0 24px 20px;
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        .post-content p { margin-bottom: 12px; }
+        
+        .post-footer {
+            padding: 16px 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .read-more:hover { text-decoration: underline; }
+        
+        .post-stats {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+            font-size: 13px;
+        }
+        
+        .footer a { color: var(--accent); }
+        
+        /* Responsive */
+        @media (max-width: 640px) {
+            .post-header, .post-content, .post-footer {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            
+            .post-title { font-size: 18px; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🤖 AI大模型深度研究报告</h1>
-            <p class="subtitle">2026年2月 · 每日热点深度分析</p>
-        </header>
-        <div class="reports">
-            <a href="01-llama-70b-single-gpu.md" class="report-card">
-                <h2><span class="report-number">1</span>Llama 3.1 70B单卡运行突破</h2>
-                <p class="report-desc">消费级硬件的大模型革命：NTransformer项目如何在单张RTX 3090上运行70B大模型</p>
-                <div class="report-meta"><span class="tag">硬件</span><span>约15分钟阅读</span></div>
-            </a>
-            <a href="02-esp32-ai-assistant.md" class="report-card">
-                <h2><span class="report-number">2</span>ESP32 AI助手：888KB的边缘智能</h2>
-                <p class="report-desc">zclaw项目：仅888KB固件运行AI助手，微控制器上的边缘AI突破</p>
-                <div class="report-meta"><span class="tag">物联网</span><span>约12分钟阅读</span></div>
-            </a>
-            <a href="03-n64-llm-game.md" class="report-card">
-                <h2><span class="report-number">3</span>N64运行首个LLM：复古硬件的AI重生</h2>
-                <p class="report-desc">Legend of Elya：1996年发布的Nintendo 64上运行神经网络语言模型</p>
-                <div class="report-meta"><span class="tag">复古</span><span>约10分钟阅读</span></div>
-            </a>
-            <a href="04-electron-ai-apps.md" class="report-card">
-                <h2><span class="report-number">4</span>AI应用的Electron之痛</h2>
-                <p class="report-desc">为什么全球领先的AI公司仍选择Electron构建桌面应用？深度解析技术选型困境</p>
-                <div class="report-meta"><span class="tag">工程</span><span>约12分钟阅读</span></div>
-            </a>
-            <a href="05-claws-llm-agent-evolution.md" class="report-card">
-                <h2><span class="report-number">5</span>LLM Agent新层级：Claws崛起</h2>
-                <p class="report-desc">Karpathy提出的Claws概念：Agent之上的新范式，从被动到主动的演进</p>
-                <div class="report-meta"><span class="tag">Agent</span><span>约12分钟阅读</span></div>
-            </a>
+    <div class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Research<span>Notes</span></a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="https://github.com/gordonho/research-reports">GitHub</a>
+            </nav>
         </div>
-        <footer>
-            <p>📅 每日更新 | 来源：Hacker News</p>
-            <p>🔗 Powered by OpenClaw</p>
-        </footer>
     </div>
+    
+    <main class="main">
+        <!-- 2026-02-22 新增 -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="01-claws-llm-agent-evolution.md">LLM Agent新层级：Claws崛起 — Karpathy的Agent演进论</a>
+                </h2>
+                <div class="post-meta">2026年2月22日 · 约7,000字</div>
+            </div>
+            <div class="post-content">
+                <p>AI领域传奇人物Andrej Karpathy提出"Claws"概念，重新定义LLM Agent的发展阶段。从Prompt到Agent再到Claws，本文深入分析这一新范式的内涵、技术实现和未来影响。</p>
+            </div>
+            <div class="post-footer">
+                <a href="01-claws-llm-agent-evolution.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 🧑‍💻 Agent</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="04-electron-ai-apps.md">AI应用的Electron之痛：为什么桌面AI工具都是"臃肿"的？</a>
+                </h2>
+                <div class="post-meta">2026年2月22日 · 约8,000字</div>
+            </div>
+            <div class="post-content">
+                <p>尽管AI编码工具日益强大，全球领先的AI公司Anthropic仍选择Electron构建Claude桌面应用。本文深入分析AI桌面应用的技术架构选择困境，以及"AI原生"开发范式面临的现实挑战。</p>
+            </div>
+            <div class="post-footer">
+                <a href="04-electron-ai-apps.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 💻 工程</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag tech">Tech</span>
+                <h2 class="post-title">
+                    <a href="03-n64-llm-game.md">N64运行首个LLM：复古硬件的AI重生</a>
+                </h2>
+                <div class="post-meta">2026年2月22日 · 约5,000字</div>
+            </div>
+            <div class="post-content">
+                <p>"Legend of Elya"项目实现了在1996年发布的Nintendo 64游戏机上运行神经网络语言模型。仅有4MB RAM、93MHz CPU的远古硬件如今也能运行AI——这是史上首个在N64上实时推理的LLM。</p>
+            </div>
+            <div class="post-footer">
+                <a href="03-n64-llm-game.md" class="read-more">Read more →</a>
+                <span class="post-stats">💻 Tech · 🎮 复古</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="02-esp32-ai-assistant.md">ESP32 AI助手：888KB的边缘智能革命</a>
+                </h2>
+                <div class="post-meta">2026年2月22日 · 约7,000字</div>
+            </div>
+            <div class="post-content">
+                <p>zclaw项目创造了在ESP32微控制器上运行AI个人助理的奇迹。整个固件仅888KB，包含Wi-Fi、TLS、加密栈和应用程序代码。本文分析其架构设计、技术突破和物联网AI的未来。</p>
+            </div>
+            <div class="post-footer">
+                <a href="02-esp32-ai-assistant.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 📡 物联网</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="01-llama-70b-single-gpu.md">Llama 3.1 70B单卡运行突破：消费级硬件的大模型革命</a>
+                </h2>
+                <div class="post-meta">2026年2月22日 · 约5,000字</div>
+            </div>
+            <div class="post-content">
+                <p>NTransformer项目实现了在单张RTX 3090（24GB显存）上运行Llama 70B大模型，通过创新的三层自适应缓存架构和NVMe直连技术，突破消费级硬件的算力限制。</p>
+            </div>
+            <div class="post-footer">
+                <a href="01-llama-70b-single-gpu.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 💻 硬件</span>
+            </div>
+        </article>
+        
+        <!-- 原有报告 -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=chatgpt_ads_report_2026.md">OpenAI ChatGPT广告上线：AI搜索商业模式探索与市场影响深度分析</a>
+                </h2>
+                <div class="post-meta">2026年2月20日 · 约8,000字</div>
+            </div>
+            <div class="post-content">
+                <p>深度分析ChatGPT广告上线背景、广告形式、首批广告主（Expedia、Best Buy）、对传统搜索引擎的冲击及AI搜索商业模式未来趋势。</p>
+                <p>核心要点：OpenAI商业化战略关键一步，AI搜索广告与用户体验的平衡，Google等传统搜索引擎的转型压力...</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=chatgpt_ads_report_2026.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 📢 广告</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=ai_security_geopolitics_report_2026.md">AI安全监管与地缘政治：2026年全球AI治理格局深度分析</a>
+                </h2>
+                <div class="post-meta">2026年2月20日 · 约10,000字</div>
+            </div>
+            <div class="post-content">
+                <p>深度分析美国国防部对Anthropic的供应链风险评估、全球AI监管趋势（EU AI Act、美国行政令、中国法规）、AI企业安全挑战及地缘政治竞争格局。</p>
+                <p>核心要点：2026年AI进入全面监管时代，欧盟AI法案全面执行，美国供应链审查升级，中国加强出口管控。Anthropic 3800亿美元估值背后的安全博弈...</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=ai_security_geopolitics_report_2026.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 🌍 地缘政治</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=Anthropic_Opus_4.6_Report.md">Anthropic Opus 4.6 深度研究报告：代理式AI新纪元</a>
+                </h2>
+                <div class="post-meta">2026年2月16日 · 约12,000字</div>
+            </div>
+            <div class="post-content">
+                <p>深度分析Anthropic 2026年2月5日发布的最新旗舰模型Opus 4.6，涵盖技术架构、核心能力、市场影响、竞争对比等章节。</p>
+                <p>核心要点：Opus 4.6在代理式编码、计算机使用、工具调用、搜索和金融五大领域实现行业领先。GitHub、Notion、Cursor、Replit等合作伙伴实测高度评价...</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=Anthropic_Opus_4.6_Report.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 🧑‍💻 Claude</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=AI_Agent_2026_Report.md">2026 Agent元年：AI Agent如何重塑产业格局？</a>
+                </h2>
+                <div class="post-meta">2026年2月14日 · 约12,000字</div>
+            </div>
+            <div class="post-content">
+                <p>深度分析2026年AI Agent市场格局、主要玩家产品、技术架构与应用场景。</p>
+                <p>核心要点：2025年AI Agent市场规模达428亿美元，预计2026年突破620亿美元。OpenAI、Anthropic、Google、Microsoft、Meta等巨头激烈角逐，Agent正在重塑软件开发、客服、内容创作等行业格局...</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=AI_Agent_2026_Report.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI Agent · 📈 市场</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag tech">Tech</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=AI_Coding_Models_Report_20260213.md">2026年AI编程模型深度研究：OpenAI Codex与Google Gemini巅峰对决</a>
+                </h2>
+                <div class="post-meta">2026年2月13日 · 约5,000字</div>
+            </div>
+            <div class="post-content">
+                <p>深度分析OpenAI Codex与Google Gemini 3 Deep Think的竞争格局，涵盖技术架构、产品特性、市场竞争、应用场景等内容。</p>
+                <p>核心要点：OpenAI推出首个桌面应用主推实时协作，Gemini 3编程能力冲进全球前8...</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=AI_Coding_Models_Report_20260213.md" class="read-more">Read more →</a>
+                <span class="post-stats">💻 AI · 🧑‍💻 编程</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag research">行业</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=Pet_Market_Report_20260213.md">2026年全球宠物市场深度调研报告</a>
+                </h2>
+                <div class="post-meta">2026年2月13日 · 约6,000字</div>
+            </div>
+            <div class="post-content">
+                <p>深度分析全球宠物市场现状与发展趋势，涵盖中国3126亿市场规模、全球区域格局、投资机遇与风险等内容。</p>
+                <p>核心数据：2025年中国宠物市场规模3126亿元，预计2028年突破4000亿元。"猫经济"成为核心增长引擎...</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=Pet_Market_Report_20260213.md" class="read-more">Read more →</a>
+                <span class="post-stats">🐱 宠物 · 📈 消费</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=Seedance_2_0_Detailed_Report_20260213.md">Seedance 2.0深度分析：字节跳动AI视频王者的技术突破与市场影响</a>
+                </h2>
+                <div class="post-meta">2026年2月13日 · 约12,000字</div>
+            </div>
+            <div class="post-content">
+                <p>深度分析字节跳动最新AI视频模型Seedance 2.0的技术架构、核心功能、市场竞争与投资机遇。</p>
+                <p>作为首个实现原生音视频同步生成、多镜头叙事和8种语言唇形同步的AI视频模型，Seedance 2.0重新定义了AI视频创作的可能性...</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=Seedance_2_0_Detailed_Report_20260213.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 🎬 Video</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=Epic_AI_Charting_Detailed_Report_20260213.md">Epic AI Charting 深度研究报告</a>
+                </h2>
+                <div class="post-meta">2026年2月13日 · 34,443 字</div>
+            </div>
+            <div class="post-content">
+                <p>深入分析 Epic AI Charting 产品，涵盖公司背景、产品功能、市场竞争、行业趋势、临床应用、中国启示等章节。</p>
+                <p>Epic 作为美国最大电子病历供应商推出的 AI 病历工具，标志着医疗 AI 进入生态整合新时代...</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=Epic_AI_Charting_Detailed_Report_20260213.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 🏥 Healthcare</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=Epic_AI_Charting_Report_20260213.md">Epic AI Charting 研究报告（简版）</a>
+                </h2>
+                <div class="post-meta">2026年2月13日</div>
+            </div>
+            <div class="post-content">
+                <p>产品概述、功能特点、市场影响分析，以及对中国医疗 AI 市场的启示。</p>
+                <p>Epic AI Charting 是一款 AI 病历自动生成工具，可理解为"AI 抄写员"...</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=Epic_AI_Charting_Report_20260213.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 🏥 Healthcare</span>
+            </div>
+        </article>
+    </main>
+    
+    <footer class="footer">
+        <p>由 <a href="https://github.com/gordonho">OpenClaw AI</a> 助手自动生成</p>
+        <p>Powered by <a href="https://github.com/gordonho/research-reports">GitHub Pages</a></p>
+    </footer>
 </body>
 </html>
