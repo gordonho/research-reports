@@ -1,1 +1,93 @@
-%   * 01-llama-70b-single-gpu.md
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI大模型深度研究报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh; color: #eee; line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; margin-bottom: 60px; }
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        .subtitle { color: #888; font-size: 1.1rem; }
+        .reports { display: grid; gap: 24px; }
+        .report-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px; padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none; color: inherit; display: block;
+        }
+        .report-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-4px);
+            border-color: rgba(0,212,255,0.3);
+        }
+        .report-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            color: #fff; width: 36px; height: 36px;
+            border-radius: 50%; text-align: center;
+            line-height: 36px; font-weight: bold; margin-right: 16px;
+        }
+        .report-title { font-size: 1.4rem; font-weight: 600; margin-bottom: 12px; color: #fff; }
+        .report-desc { color: #aaa; margin-bottom: 16px; }
+        .report-meta { display: flex; gap: 16px; font-size: 0.85rem; color: #666; }
+        .tag {
+            background: rgba(0,212,255,0.2); color: #00d4ff;
+            padding: 4px 12px; border-radius: 20px;
+        }
+        footer { text-align: center; margin-top: 60px; color: #555; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI大模型深度研究报告</h1>
+            <p class="subtitle">2026年2月 · 每日热点深度分析</p>
+        </header>
+        <div class="reports">
+            <a href="01-llama-70b-single-gpu.md" class="report-card">
+                <h2><span class="report-number">1</span>Llama 3.1 70B单卡运行突破</h2>
+                <p class="report-desc">消费级硬件的大模型革命：NTransformer项目如何在单张RTX 3090上运行70B大模型</p>
+                <div class="report-meta"><span class="tag">硬件</span><span>约15分钟阅读</span></div>
+            </a>
+            <a href="02-esp32-ai-assistant.md" class="report-card">
+                <h2><span class="report-number">2</span>ESP32 AI助手：888KB的边缘智能</h2>
+                <p class="report-desc">zclaw项目：仅888KB固件运行AI助手，微控制器上的边缘AI突破</p>
+                <div class="report-meta"><span class="tag">物联网</span><span>约12分钟阅读</span></div>
+            </a>
+            <a href="03-n64-llm-game.md" class="report-card">
+                <h2><span class="report-number">3</span>N64运行首个LLM：复古硬件的AI重生</h2>
+                <p class="report-desc">Legend of Elya：1996年发布的Nintendo 64上运行神经网络语言模型</p>
+                <div class="report-meta"><span class="tag">复古</span><span>约10分钟阅读</span></div>
+            </a>
+            <a href="04-electron-ai-apps.md" class="report-card">
+                <h2><span class="report-number">4</span>AI应用的Electron之痛</h2>
+                <p class="report-desc">为什么全球领先的AI公司仍选择Electron构建桌面应用？深度解析技术选型困境</p>
+                <div class="report-meta"><span class="tag">工程</span><span>约12分钟阅读</span></div>
+            </a>
+            <a href="05-claws-llm-agent-evolution.md" class="report-card">
+                <h2><span class="report-number">5</span>LLM Agent新层级：Claws崛起</h2>
+                <p class="report-desc">Karpathy提出的Claws概念：Agent之上的新范式，从被动到主动的演进</p>
+                <div class="report-meta"><span class="tag">Agent</span><span>约12分钟阅读</span></div>
+            </a>
+        </div>
+        <footer>
+            <p>📅 每日更新 | 来源：Hacker News</p>
+            <p>🔗 Powered by OpenClaw</p>
+        </footer>
+    </div>
+</body>
+</html>
