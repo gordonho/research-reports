@@ -24,7 +24,6 @@
             line-height: 1.6;
         }
         
-        /* Header */
         .header {
             background: var(--card-bg);
             border-bottom: 1px solid var(--border);
@@ -63,14 +62,12 @@
         
         .nav a:hover { color: var(--accent); }
         
-        /* Main */
         .main {
             max-width: 840px;
             margin: 40px auto;
             padding: 0 20px;
         }
         
-        /* Post Card */
         .post {
             background: var(--card-bg);
             border-radius: 12px;
@@ -106,9 +103,10 @@
         .post-tag.ai { background: var(--accent); }
         .post-tag.tech { background: #ff4757; }
         .post-tag.research { background: #2ed573; }
+        .post-tag.stock { background: #ffa502; }
         
         .post-title {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 8px;
@@ -159,7 +157,6 @@
             font-size: 13px;
         }
         
-        /* Footer */
         .footer {
             text-align: center;
             padding: 40px 20px;
@@ -169,7 +166,6 @@
         
         .footer a { color: var(--accent); }
         
-        /* Responsive */
         @media (max-width: 640px) {
             .post-header, .post-content, .post-footer {
                 padding-left: 16px;
@@ -192,6 +188,7 @@
     </div>
     
     <main class="main">
+        <!-- Claude 4.6 Agents -->
         <article class="post">
             <div class="post-header">
                 <span class="post-tag ai">AI</span>
@@ -202,7 +199,6 @@
             </div>
             <div class="post-content">
                 <p>深度解析16个Claude Agents协作构建C编译器的里程碑实验，探讨AI自主编程的能力边界与对开发者工作流的颠覆性影响。</p>
-                <p>2026年2月，Anthropic研究团队完成了一项划时代的实验：16个Claude Opus 4.6 AI Agent协作，从零开始构建了一个能够编译Linux内核的C编译器...</p>
             </div>
             <div class="post-footer">
                 <a href="view_report.html?file=claude_4.6_agents_c_compiler_report.md" class="read-more">Read more →</a>
@@ -210,21 +206,288 @@
             </div>
         </article>
         
+        <!-- AI Agent 2026 -->
         <article class="post">
             <div class="post-header">
                 <span class="post-tag ai">AI</span>
                 <h2 class="post-title">
-                    <a href="view_report.html?file=Epic_AI_Charting_Detailed_Report_20260213.md">Epic AI Charting 深度研究报告</a>
+                    <a href="view_report.html?file=ai_report_2026_agent_epoch.md">AI Agent 2026：Agent 崛起元年</a>
                 </h2>
-                <div class="post-meta">2026年2月13日 · 34,443 字</div>
+                <div class="post-meta">2026年</div>
             </div>
             <div class="post-content">
-                <p>深入分析 Epic AI Charting 产品，涵盖公司背景、产品功能、市场竞争、行业趋势、临床应用、中国启示等章节。</p>
-                <p>Epic 作为美国最大电子病历供应商推出的 AI 病历工具，标志着医疗 AI 进入生态整合新时代...</p>
+                <p>分析2026年AI Agent技术的发展现状与未来趋势。</p>
             </div>
             <div class="post-footer">
-                <a href="view_report.html?file=Epic_AI_Charting_Detailed_Report_20260213.md" class="read-more">Read more →</a>
-                <span class="post-stats">🤖 AI · 🏥 Healthcare</span>
+                <a href="view_report.html?file=ai_report_2026_agent_epoch.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI</span>
+            </div>
+        </article>
+        
+        <!-- AI Security -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=ai_security_geopolitics_report_2026.md">AI安全监管与地缘政治报告</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <p>深入post-content">
+               分析全球 <div class="监管趋势AI安全与地缘政治影响。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=ai_security_geopolitics_report_2026.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 🌍 Geopolitics</span>
+            </div>
+        </article>
+        
+        <!-- OpenAI Pentagon -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=07-openai-pentagon-ai-arms-race.md">OpenAI 与五角大楼：AI军备竞赛</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <div class="post-content">
+                <p>探讨OpenAI与美国国防部的合作及其对全球AI军备竞赛的影响。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=07-openai-pentagon-ai-arms-race.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 🌍 Defense</span>
+            </div>
+        </article>
+        
+        <!-- MCP Protocol -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag tech">Tech</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=mcp-protocol-report-2026-02-26.md">MCP Protocol 2026</a>
+                </h2>
+                <div class="post-meta">2026年2月26日</div>
+            </div>
+            <div class="post-content">
+                <p>Model Context Protocol (MCP) 技术报告。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=mcp-protocol-report-2026-02-26.md" class="read-more">Read more →</a>
+                <span class="post-stats">💻 Tech</span>
+            </div>
+        </article>
+        
+        <!-- NVIDIA Rubin -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag tech">Tech</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=nvidia_rubin_report_2026-02-28.md">NVIDIA Rubin GPU 2026</a>
+                </h2>
+                <div class="post-meta">2026年2月28日</div>
+            </div>
+            <div class="post-content">
+                <p>NVIDIA Rubin 架构分析报告。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=nvidia_rubin_report_2026-02-28.md" class="read-more">Read more →</a>
+                <span class="post-stats">💻 Tech · 🎮 GPU</span>
+            </div>
+        </article>
+        
+        <!-- Sanhua Intelligent -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag stock">Stock</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=sanhua-intelligent-report-2026-02-26.md">三花智能研究报告</a>
+                </h2>
+                <div class="post-meta">2026年2月26日</div>
+            </div>
+            <div class="post-content">
+                <p>三花智能股票分析报告。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=sanhua-intelligent-report-2026-02-26.md" class="read-more">Read more →</a>
+                <span class="post-stats">📈 Stock</span>
+            </div>
+        </article>
+        
+        <!-- Yunnan Germanium -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag stock">Stock</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=yunnan-germanium-report-2026-02-26.md">云南锗业研究报告</a>
+                </h2>
+                <div class="post-meta">2026年2月26日</div>
+            </div>
+            <div class="post-content">
+                <p>云南锗业股票分析报告。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=yunnan-germanium-report-2026-02-26.md" class="read-more">Read more →</a>
+                <span class="post-stats">📈 Stock</span>
+            </div>
+        </article>
+        
+        <!-- Zijin Mining -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag stock">Stock</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=stock_zijin_mining_report_20260303.md">紫金矿业深度分析报告</a>
+                </h2>
+                <div class="post-meta">2026年3月3日</div>
+            </div>
+            <div class="post-content">
+                <p>紫金矿业基本面分析、行业前景与投资建议。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=stock_zijin_mining_report_20260303.md" class="read-more">Read more →</a>
+                <span class="post-stats">📈 Stock</span>
+            </div>
+        </article>
+        
+        <!-- AI Video Generation -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=ai-video-generation-battle-2026.md">AI视频生成大战2026</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <div class="post-content">
+                <p>分析OpenAI Sora、Runway、Pika等AI视频生成工具的竞争格局。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=ai-video-generation-battle-2026.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 🎬 Video</span>
+            </div>
+        </article>
+        
+        <!-- Anthropic Opus 4.6 -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=Anthropic_Opus_4.6_Report.md">Anthropic Opus 4.6 研究报告</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <div class="post-content">
+                <p>Claude Opus 4.6 模型能力分析。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=Anthropic_Opus_4.6_Report.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI</span>
+            </div>
+        </article>
+        
+        <!-- LLM Market -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=06-llm-market-2026.md">LLM市场格局2026</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <div class="post-content">
+                <p>大语言模型市场分析报告。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=06-llm-market-2026.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 📊 Market</span>
+            </div>
+        </article>
+        
+        <!-- ChatGPT Ads -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=chatgpt_ads_report_2026.md">ChatGPT 广告研究报告</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <div class="post-content">
+                <p>ChatGPT 广告策略分析。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=chatgpt_ads_report_2026.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 📣 Marketing</span>
+            </div>
+        </article>
+        
+        <!-- Seedance 2.0 -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag tech">Tech</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=Seedance_2_0_Detailed_Report_20260213.md">Seedance 2.0 深度报告</a>
+                </h2>
+                <div class="post-meta">2026年2月13日</div>
+            </div>
+            <div class="post-content">
+                <p>Seedance 2.0 产品详细分析报告。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=Seedance_2_0_Detailed_Report_20260213.md" class="read-more">Read more →</a>
+                <span class="post-stats">💻 Tech</span>
+            </div>
+        </article>
+        
+        <!-- Pet Market -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag research">Research</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=Pet_Market_Report_20260213.md">宠物市场研究报告</a>
+                </h2>
+                <div class="post-meta">2026年2月13日</div>
+            </div>
+            <div class="post-content">
+                <p>宠物行业市场分析。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=Pet_Market_Report_20260213.md" class="read-more">Read more →</a>
+                <span class="post-stats">🐕 Retail</span>
+            </div>
+        </article>
+        
+        <!-- AI Coding Models -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=AI_Coding_Models_Report_20260213.md">AI编程模型研究报告</a>
+                </h2>
+                <div class="post-meta">2026年2月13日</div>
+            </div>
+            <div class="post-content">
+                <p>AI编程模型能力评估。</p>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=AI_Coding_Models_Report_20260213.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 💻 Coding</span>
+            </div>
+        </article>
+        
+        <!-- 01-05 -->
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=01-llama-70b-single-gpu.md">Llama 70B 单GPU部署</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=01-llama-70b-single-gpu.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI</span>
             </div>
         </article>
         
@@ -232,17 +495,69 @@
             <div class="post-header">
                 <span class="post-tag ai">AI</span>
                 <h2 class="post-title">
-                    <a href="view_report.html?file=Epic_AI_Charting_Report_20260213.md">Epic AI Charting 研究报告（简版）</a>
+                    <a href="view_report.html?file=02-esp32-ai-assistant.md">ESP32 AI 助手</a>
                 </h2>
-                <div class="post-meta">2026年2月13日</div>
-            </div>
-            <div class="post-content">
-                <p>产品概述、功能特点、市场影响分析，以及对中国医疗 AI 市场的启示。</p>
-                <p>Epic AI Charting 是一款 AI 病历自动生成工具，可理解为"AI 抄写员"...</p>
+                <div class="post-meta">2026年</div>
             </div>
             <div class="post-footer">
-                <a href="view_report.html?file=Epic_AI_Charting_Report_20260213.md" class="read-more">Read more →</a>
-                <span class="post-stats">🤖 AI · 🏥 Healthcare</span>
+                <a href="view_report.html?file=02-esp32-ai-assistant.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI · 🔧 Hardware</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag tech">Tech</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=03-n64-llm-game.md">N64 LLM 游戏</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=03-n64-llm-game.md" class="read-more">Read more →</a>
+                <span class="post-stats">🎮 Gaming</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag tech">Tech</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=04-electron-ai-apps.md">Electron AI 应用</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=04-electron-ai-apps.md" class="read-more">Read more →</a>
+                <span class="post-stats">💻 Tech</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag ai">AI</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=05-claws-llm-agent-evolution.md">Claws LLM Agent 演进</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=05-claws-llm-agent-evolution.md" class="read-more">Read more →</a>
+                <span class="post-stats">🤖 AI</span>
+            </div>
+        </article>
+        
+        <article class="post">
+            <div class="post-header">
+                <span class="post-tag tech">Tech</span>
+                <h2 class="post-title">
+                    <a href="view_report.html?file=06-facetime-auto-dial.md">FaceTime 自动拨打</a>
+                </h2>
+                <div class="post-meta">2026年</div>
+            </div>
+            <div class="post-footer">
+                <a href="view_report.html?file=06-facetime-auto-dial.md" class="read-more">Read more →</a>
+                <span class="post-stats">🍎 Apple</span>
             </div>
         </article>
     </main>
