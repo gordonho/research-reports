@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI视频提示词 | Research Notes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #001935; --accent: #00a8e8; --bg: #fafafa; --card-bg: #ffffff; --text: #444; --text-light: #888; --border: #e0e0e0; }
+        body { font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .header { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 20px 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 840px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav a { color: var(--text-light); text-decoration: none; margin-left: 24px; font-size: 14px; transition: color 0.2s; }
+        .nav a:hover { color: var(--accent); }
+        .main { max-width: 840px; margin: 40px auto; padding: 0 20px; }
+        h1 { font-size: 28px; color: var(--primary); margin-bottom: 8px; }
+        .subtitle { color: var(--text-light); margin-bottom: 32px; }
+        .time-block { background: var(--card-bg); border-radius: 12px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid var(--border); overflow: hidden; }
+        .time-header { background: var(--primary); color: white; padding: 12px 20px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .time-header.morning { background: #ff9500; }
+        .time-header.noon { background: #00a8e8; }
+        .time-header.night { background: #5e5ce6; }
+        .prompt-content { padding: 20px; }
+        .prompt-content pre { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.6; white-space: pre-wrap; }
+        .meta { margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap; }
+        .meta span { background: #f0f0f0; padding: 4px 10px; border-radius: 4px; font-size: 12px; }
+        .footer { text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Research<span>Notes</span></a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="https://github.com/gordonho/research-reports">GitHub</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="main">
+        <h1>📹 每日AI视频提示词</h1>
+        <p class="subtitle">基于五定法生成，每天上午、中午、晚上各一个 | 更新日期：2026年4月4日</p>
+
+        <div class="time-block">
+            <div class="time-header morning">🌅 上午篇 - 治愈系等待主题</div>
+            <div class="prompt-content">
+                <pre>治愈系电影风格，日式动漫质感，柔光朦胧感，温馨治愈的情绪基调。
+
+0-5秒：午后的咖啡馆窗边，阳光透过玻璃在桌面投下温暖的光斑，一杯刚泡好的卡布奇诺冒着热气，杯子上映着窗外蓝天的倒影。女孩坐在窗边，手里翻着一本书，嘴角带着浅笑。
+
+5-10秒：窗外的光线渐渐从正午的白光变成黄昏的橘色，咖啡杯已经空了，杯底留着一圈咖啡渍。女孩抬起头看向门口，眼神里有一丝期待，但很快又低下頭，继续看书，动作变得缓慢。背景音乐渐弱，只剩雨声和若有似无的钢琴余韵。
+
+10-15秒：窗外已经完全入夜，街灯亮起，桌上的咖啡杯旁多了一本翻到中间的书和一支干枯的花。女孩轻轻笑了笑，站起身离开，背影在暖黄色灯光下显得释然。镜头缓缓拉远，咖啡馆重新陷入宁静。画面定格在"有些人注定只是路过"的文字上。
+
+配乐：轻钢琴+雨声，环境白噪音
+运镜：推近→拉远→定格
+时间密度：低密度（5-8字/秒）</pre>
+                <div class="meta">
+                    <span>⏱️ 15秒</span>
+                    <span>🎬 治愈系</span>
+                    <span>📈 情感共鸣</span>
+                    <span>💡 五定法</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="time-block">
+            <div class="time-header noon">🌤️ 中午篇 - （待生成）</div>
+            <div class="prompt-content">
+                <p style="color: var(--text-light);">中午12点更新...</p>
+            </div>
+        </div>
+
+        <div class="time-block">
+            <div class="time-header night">🌙 晚上篇 - （待生成）</div>
+            <div class="prompt-content">
+                <p style="color: var(--text-light);">晚上6点更新...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>使用说明：将提示词复制到 Seedance 2.0 或同类AI视频生成工具即可生成视频</p>
+    </div>
+</body>
+</html>
