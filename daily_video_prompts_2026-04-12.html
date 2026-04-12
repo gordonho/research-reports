@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI视频提示词 | Research Notes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #001935; --accent: #00a8e8; --bg: #fafafa; --card-bg: #ffffff; --text: #444; --text-light: #888; --border: #e0e0e0; }
+        body { font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .header { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 20px 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 840px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav a { color: var(--text-light); text-decoration: none; margin-left: 24px; font-size: 14px; transition: color 0.2s; }
+        .nav a:hover { color: var(--accent); }
+        .main { max-width: 840px; margin: 40px auto; padding: 0 20px; }
+        h1 { font-size: 28px; color: var(--primary); margin-bottom: 8px; }
+        .subtitle { color: var(--text-light); margin-bottom: 32px; }
+        .time-block { background: var(--card-bg); border-radius: 12px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid var(--border); overflow: hidden; }
+        .time-header { background: var(--primary); color: white; padding: 16px 20px; font-weight: 600; display: flex; align-items: center; gap: 8px; font-size: 16px; }
+        .time-header.morning { background: linear-gradient(135deg, #ff9500, #ff6b00); }
+        .time-header.noon { background: linear-gradient(135deg, #00a8e8, #0077b6); }
+        .time-header.night { background: linear-gradient(135deg, #5e5ce6, #3634a3); }
+        .prompt-content { padding: 20px; }
+        .prompt-content pre { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 11px; line-height: 1.6; white-space: pre-wrap; max-height: 400px; overflow-y: auto; }
+        .section-title { font-size: 14px; font-weight: 600; color: var(--primary); margin: 16px 0 8px; border-left: 3px solid var(--accent); padding-left: 12px; }
+        .trailer { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+        .trailer-title { font-weight: 600; color: #856404; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .meta { margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap; }
+        .meta span { background: #f0f0f0; padding: 4px 10px; border-radius: 4px; font-size: 12px; }
+        .footer { text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 13px; }
+        .info-box { background: #e8f4fd; padding: 16px; border-radius: 8px; margin-bottom: 24px; font-size: 14px; border-left: 4px solid var(--accent); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Research<span>Notes</span></a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="https://github.com/gordonho/research-reports">GitHub</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="main">
+        <h1>📹 每日AI视频提示词</h1>
+        <p class="subtitle">基于五定法生成，每天上午、中午、晚上各一个（含先导片+正片） | <a href="daily_video_prompts_2026-04-12.html"><strong>更新日期：2026年4月12日</strong></a></p>
+        
+        <div class="info-box">
+            <strong>📌 发帖流程：</strong>每个视频 = 15秒先导片（引流） + 2-3分钟正片（完整内容）<br>
+            <strong>先导片作用：</strong>3秒开头抓眼球 → 7秒快速剪辑建立期待 → 5秒钩子引导关注<br>
+            <strong>结尾统一：</strong>黑底白字 "@你的账号名" + 关注动画
+        </div>
+
+        <!-- 上午篇 -->
+        <div class="time-block">
+            <div class="time-header morning">🌅 上午篇 - 《ICU里的创业者》</div>
+            <div class="prompt-content">
+                <div class="trailer">
+                    <div class="trailer-title">🎬 先导片 - 15秒</div>
+                    <p><strong>【3秒开头】</strong>特写：心电图监护仪的波形</p>
+                    <p><strong>【7秒】</strong>快速剪辑：点滴瓶、创业者趴在病房小桌写代码、笔记本电脑屏幕上的代码、旁边是创业者打着点滴的手</p>
+                    <p><strong>【5秒钩子】</strong>字幕：「他在ICU里写出了融资百万的代码」</p>
+                </div>
+                
+                <p class="section-title">🎥 正片 - 90秒</p>
+                <pre>【场景1：0-15秒】
+画面：晨光中的ICU病房特写
+解说：这是2024年最冷的冬天，张明确诊了突发性心肌炎。在ICU的病床上，他收到了投资机构的拒绝信。
+同期声：监护仪的滴滴声
+
+【场景2：15-40秒】
+画面：特写创业者苍白的脸和坚定的眼神，他艰难地拿起笔记本电脑
+解说：但他没有放弃。在抗生素和监护仪的陪伴下，他开始重新设计产品。
+特写：代码行一行行增加
+
+【场景3：40-60秒】
+画面：护士帮忙调整点滴，投资人视频通话
+解说：护士成了他的"技术顾问"，帮他递充电器。投资人被他打动，主动提出追加投资。
+字幕：3个月后，产品上线，融资百万
+
+【场景4：60-80秒】
+画面：创业者康复出院，走出医院，阳光照在脸上
+解说：有时候，最艰难的时刻，恰恰是最接近成功的时刻。
+空镜：城市CBD的日出
+
+【结尾：80-90秒】
+黑底白字：「创业不是躺平，是躺着想站起来」
+@你的账号名</pre>
+                
+                <div class="meta">
+                    <span>🏷️ 主题：真实创业故事</span>
+                    <span>🎯 定人：30-40岁科技创业者</span>
+                    <span>🏞️ 定景：ICU病房、医院</span>
+                    <span>🎵 定调：坚韧、感人、励志</span>
+                    <span>📹 定拍：特写为主，慢速推进</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 中午篇 -->
+        <div class="time-block">
+            <div class="time-header noon">☀️ 中午篇 - 《写字楼里的"午餐"博弈》</div>
+            <div class="prompt-content">
+                <div class="trailer">
+                    <div class="trailer-title">🎬 先导片 - 15秒</div>
+                    <p><strong>【3秒开头】</strong>特写：外卖小哥爬楼梯满头大汗</p>
+                    <p><strong>【7秒】</strong>快速剪辑：白领们排队等电梯、抢电梯按钮、公司前台堆积的外卖、竞争公司的外卖车</p>
+                    <p><strong>【5秒钩子】</strong>字幕：「一栋写字楼里藏着千万级的生意」</p>
+                </div>
+                
+                <p class="section-title">🎥 正片 - 90秒</p>
+                <pre>【场景1：0-15秒】
+画面：CBD写字楼大堂，午餐时间人群涌动
+解说：每天中午11:30到1点，这栋楼里都会发生一场没有硝烟的战争。
+同期声：电梯提示音、脚步声
+
+【场景2：15-40秒】
+画面：不同外卖平台的配送员竞争
+解说：但有人看到了商机。小李每午餐时间约不同人"吃饭"，一年积累了200个客户。
+特写：外卖App的订单页面
+
+【场景3：40-60秒】
+画面：创业者利用午餐时间social
+解说：美团、饿了么、字节食堂......每个午餐选择背后都是平台的博弈。
+字幕：他的创业项目就是给写字楼提供团餐
+
+【场景4：60-80秒】
+画面：创业者签约、团队聚餐
+解说：现在他的公司估值千万。
+空镜：写字楼夜景
+
+【结尾：80-90秒】
+黑底白字：「你的每一顿午餐都可能是机会」
+@你的账号名</pre>
+                
+                <div class="meta">
+                    <span>🏷️ 主题：职场故事</span>
+                    <span>🎯 定人：25-35岁职场人士</span>
+                    <span>🏞️ 定景：写字楼、餐厅</span>
+                    <span>🎵 定调：商业洞察、职场智慧</span>
+                    <span>📹 定拍：中景为主，快速剪辑</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 晚上篇 -->
+        <div class="time-block">
+            <div class="time-header night">🌙 晚上篇 - 《凌晨4点的便利店》</div>
+            <div class="prompt-content">
+                <div class="trailer">
+                    <div class="trailer-title">🎬 先导片 - 15秒</div>
+                    <p><strong>【3秒开头】</strong>特写：便利店灯光在深夜街道上格外温暖</p>
+                    <p><strong>【7秒】</strong>快速剪辑：凌晨加班的白领、代驾司机、出租车司机、创业者、流浪猫</p>
+                    <p><strong>【5秒钩子】</strong>字幕：「这家便利店见证了城市凌晨4点的所有秘密」</p>
+                </div>
+                
+                <p class="section-title">🎥 正片 - 90秒</p>
+                <pre>【场景1：0-15秒】
+画面：凌晨4点的街道，只有24小时便利店亮着灯
+解说：城市里最孤独的时刻，往往发生在凌晨。
+同期声：冰箱嗡嗡声、偶尔的汽笛
+
+【场景2：15-40秒】
+画面：各种夜归人进店
+解说：加班到凌晨的程序员、刚下班的代驾、跑业务的销售......他们在这里短暂停留。
+特写：不同人的表情和选择
+
+【场景3：40-60秒】
+画面：便利店老板与顾客交流
+解说：老板老王做了十年夜班，他说这些人里面有未来的大老板，也有失意的中年人。
+字幕：他把顾客的故事写成了笔记
+
+【场景4：60-80秒】
+画面：天亮后便利店的日常
+解说：早晨6点，早餐高峰。城市又恢复了忙碌。
+空镜：城市日出
+
+【结尾：80-90秒】
+黑底白字：「每个深夜便利店都是城市的心脏」
+@你的账号名</pre>
+                
+                <div class="meta">
+                    <span>🏷️ 主题：城市夜归人</span>
+                    <span>🎯 定人：城市夜归人、便利店老板</span>
+                    <span>🏞️ 定景：深夜便利店、城市街道</span>
+                    <span>🎵 定调：温暖、治愈、观察</span>
+                    <span>📹 定拍：暖色调特写，慢速镜头</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer">
+            📌 <a href="daily_video_prompts.html">查看最新版本</a> | 
+            💡 使用海螺AI、Pika、Runway等工具生成视频 | 
+            📧 联系：gordon@research-reports.com
+        </p>
+    </div>
+</body>
+</html>
